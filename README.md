@@ -38,7 +38,7 @@ You will need to install these dependencies yourself if they aren't already avai
 `bamreadlen` can display usage information on the command line via the `-h`:
 
 ```
-$ ./bamreadlen.sh -h 
+$ ./bamreadlen -h 
 bamreadlen: calculate the sequencing read length from a BAM file 
 Usage:
     bamreadlen [-h] [-n max_reads] -i input_bam_file_name 
@@ -71,17 +71,17 @@ where `/path/to/bam/file` is the filepath to your input BAM file.
 You can optionally change the number of reads that `bamreadlen` will use to calculate the result with the `-n` parameter (the default is 10,000):
 
 ```
-./bamreadlen.sh -n 10 -i /path/to/bam/file 
+./bamreadlen -n 10 -i /path/to/bam/file 
 ```
 
 The larger the value of `-n` the more likely `bamreadlen` will compute the correct result. The tradeoff is that larger values of `-n` also increase the execution time and memory needed (although `bamreadlen` should be quite fast even for millions of reads considered).
 
-If you have many samples to process then the following BASH loop might be useful, assuming ``bamreadlen.sh`` is in your PATH (otherwise specify the path to the script):
+If you have many samples to process then the following BASH loop might be useful, assuming ``bamreadlen`` is in your PATH (otherwise specify the path to the script):
 
 ```
 for file in *.bam; do
     sample=$(basename $file .bam)
-    readlen=$(bamreadlen.sh -i $file)
+    readlen=$(bamreadlen -i $file)
     echo "$sample,$readlen"
 done
 ```
