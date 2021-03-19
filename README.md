@@ -2,6 +2,8 @@
 
 This program computes the sequencing read length of an input BAM file.
 
+The input is a single BAM file and the output is a single integer that indicates the read length.
+
 It does this by collecting the first `max_reads` (default = 10,000) reads from the start of the BAM file and computing the median read length. This algorithm only makes sense in the contect of sequencing technologies where there is a common expected length for (most of) the reads in the file, such as is typically found in the outputs of short read high throughput DNA sequencing machines.
 
 In this instance the read length is taken to be the number of bases reported in the sequence string in a BAM file record.  
