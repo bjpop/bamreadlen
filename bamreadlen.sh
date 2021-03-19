@@ -20,11 +20,11 @@ function show_help {
 cat << UsageMessage
 ${program_name}: calculate the sequencing read length from a BAM file 
 Usage:
-    ${program_name} [-h] [-m max_reads] -i input_bam_file_name 
+    ${program_name} [-h] [-n max_reads] -i input_bam_file_name 
 
    -i <input_bam_file_name> is required, this specifies the input BAM file name
 
-   -m <max_reads>           is optional, if specified this is the maximum
+   -n <max_reads>           is optional, if specified this is the maximum
                             number of reads to consider from the file
 
    -h                       displays an help message
@@ -54,7 +54,7 @@ function exit_with_error {
 function parse_args {
     local OPTIND opt
 
-    while getopts "hi:m:" opt; do
+    while getopts "hi:n:" opt; do
         case "${opt}" in
             h)
                 show_help
@@ -62,7 +62,7 @@ function parse_args {
                 ;;
             i)  bamfile="${OPTARG}"
                 ;;
-            m)  max_reads="${OPTARG}"
+            n)  max_reads="${OPTARG}"
                 ;;
         esac
     done
