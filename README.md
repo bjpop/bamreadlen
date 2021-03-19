@@ -76,6 +76,16 @@ You can optionally change the number of reads that `bamreadlen` will use to calc
 
 The larger the value of `-n` the more likely `bamreadlen` will compute the correct result. The tradeoff is that larger values of `-n` also increase the execution time and memory needed (although `bamreadlen` should be quite fast even for millions of reads considered).
 
+If you have many samples to process then the following BASH loop might be useful, assuming ``bamreadlen.sh`` is in your PATH (otherwise specify the path to the script):
+
+```
+for file in *.bam; do
+    sample=$(basename $file .bam)
+    readlen=$(bamreadlen.sh -i $file)
+    echo "$sample,$readlen"
+done
+```
+
 ## Exit status values
 
 `bamreadlen` returns the following exit status values:
