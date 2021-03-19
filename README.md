@@ -14,7 +14,7 @@ In the examples below, `$` indicates the command line prompt.
 
 # Licence
 
-This program is released as open source software under the terms of [MIT License](https://raw.githubusercontent.com/bjpop/bamreadlen/master/LICENSE).
+This program is released as open source software under the terms of [MIT License](https://raw.githubusercontent.com/bjpop/bamreadlen/main/LICENSE).
 
 # Installing
 
